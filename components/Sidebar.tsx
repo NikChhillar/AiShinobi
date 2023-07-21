@@ -91,6 +91,9 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+      <div className="flex items-center w-full justify-center">
+        <span className="text-sm text-neutral-500">King of the Pirates ❤️</span>
+      </div>
     </div>
   );
 };

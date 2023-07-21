@@ -54,6 +54,7 @@ const routes = [
   {
     label: "Settings",
     icon: Settings,
+    color: "text-gray-500",
     href: "/settings",
   },
 ];

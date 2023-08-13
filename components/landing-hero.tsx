@@ -11,16 +11,16 @@ export const LandingHero = () => {
 
     return (
         <div className="text-white font-bold py-36 text-center space-y-5">
-            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-                <h1>The Best AI Tool for</h1>
+            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl space-y-5 font-extrabold">
+                <h1>Craft your unique anime universe with AniHub</h1>
                 <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                     <TypewriterComponent
                         options={{
                             strings: [
-                                "Chatbot.",
-                                "Photo Generation.",
-                                "Blog Writing.",
-                                "Mail Writing."
+                                "Top 15 Anime Curation",
+                                "Iconic Character Showcase",
+                                "Unforgettable Anime Quotes",
+                                "Effortless Watchlist Management"
                             ],
                             autoStart: true,
                             loop: true,
@@ -34,13 +34,14 @@ export const LandingHero = () => {
             <div>
                 <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
                     <Button variant="premium" className="md:text-lg p-4 md:p-6 rounded-full font-semibold">
-                        Start Generating For Free
+                        Let&apos;s get started...
                     </Button>
                 </Link>
             </div>
             <div className="text-zinc-400 text-xs md:text-sm font-normal">
-                No credit card required.
+                King of the Pirates ❤️
             </div>
         </div>
     );
 };
+

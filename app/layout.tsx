@@ -6,9 +6,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI-Shinobi",
+  title: "AniHub",
   description:
-    "Unleash the creative power of AI with our SaaS platform offering conversations, code, image, music, and video generation - where imagination knows no bounds!",
+    "AniHub is a platform for anime enthusiasts to curate, collect, and conquer their top 15 anime universe.",
 };
 
 export default function RootLayout({

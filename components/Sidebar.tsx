@@ -2,12 +2,11 @@
 
 import { cn } from "@/lib/utils";
 import {
+  ClockIcon,
   Code,
-  ImageIcon,
   LayoutDashboard,
-  MessageSquare,
-  Music,
-  Settings,
+  QuoteIcon,
+  UserIcon,
   VideoIcon,
 } from "lucide-react";
 import Image from "next/image";
@@ -22,40 +21,34 @@ const routes = [
     color: "text-sky-500",
   },
   {
-    label: "Conversation",
-    icon: MessageSquare,
-    href: "/conversation",
+    label: "Animes",
+    icon: VideoIcon,
+    href: "/animes",
     color: "text-violet-500",
   },
   {
-    label: "Image Generation",
-    icon: ImageIcon,
+    label: "Characters",
+    icon: UserIcon,
     color: "text-pink-700",
-    href: "/image",
+    href: "/characters",
   },
   {
-    label: "Video Generation",
-    icon: VideoIcon,
+    label: "Quotes",
+    icon: QuoteIcon,
     color: "text-orange-700",
-    href: "/video",
+    href: "/quotes",
   },
   {
-    label: "Music Generation",
-    icon: Music,
+    label: "Watchlist",
+    icon: ClockIcon,
     color: "text-emerald-500",
-    href: "/music",
+    href: "/watchlist",
   },
   {
-    label: "Code Generation",
+    label: "About",
     icon: Code,
-    color: "text-green-700",
-    href: "/code",
-  },
-  {
-    label: "Settings",
-    icon: Settings,
     color: "text-gray-500",
-    href: "/settings",
+    href: "/about",
   },
 ];
 
@@ -69,7 +62,7 @@ const Sidebar = () => {
           <div className="relative h-8 w-8 mr-4 text-sky-500">
             <Image fill alt="shinobi-logo" src={"/logo.png"} />
           </div>
-          <h1 className={"text-2xl font-bold"}>AI-Shinobi</h1>
+          <h1 className={"text-2xl font-bold"}>AniHub</h1>
         </Link>
         <div className="space-y-1">
           {routes.map((route) => (

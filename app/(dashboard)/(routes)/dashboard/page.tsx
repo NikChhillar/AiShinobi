@@ -4,49 +4,41 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
   ArrowRight,
-  Code,
-  ImageIcon,
-  MessageSquare,
-  Music,
+  ClockIcon,
+  QuoteIcon,
+  UserIcon,
   VideoIcon,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const tools = [
   {
-    label: "Conversation",
-    icon: MessageSquare,
-    href: "/conversation",
+    label: "Top Animes",
+    icon: VideoIcon,
+    href: "/animes",
     color: "text-violet-500",
     bgColor: "bg-violet-500/10",
   },
   {
-    label: "Music Generation",
-    icon: Music,
-    href: "/music",
+    label: "Top Characters",
+    icon: UserIcon,
+    href: "/characters",
     color: "text-emerald-500",
     bgColor: "bg-emerald-500/10",
   },
   {
-    label: "Image Generation",
-    icon: ImageIcon,
+    label: "Top Quotes",
+    icon: QuoteIcon,
     color: "text-pink-700",
     bgColor: "bg-pink-700/10",
-    href: "/image",
+    href: "/quotes",
   },
   {
-    label: "Video Generation",
-    icon: VideoIcon,
+    label: "Watchlist",
+    icon: ClockIcon,
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
-    href: "/video",
-  },
-  {
-    label: "Code Generation",
-    icon: Code,
-    color: "text-green-700",
-    bgColor: "bg-green-700/10",
-    href: "/code",
+    href: "/watchlist",
   },
 ];
 
@@ -57,10 +49,10 @@ const DashboardPage = () => {
     <div>
       <div className="mb-8 space-y-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center">
-          AiShinobi Dashboard 🔗
+          AniHub Dashboard...
         </h2>
         <p className="text-muted-foreground font-light p-1 text-sm md:text-lg text-center">
-          Step into the future of AI-driven ingenuity with AiShinobi today
+          Curate, collect, and conquer your top 15 anime universe.
         </p>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
@@ -85,5 +77,3 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
-
-

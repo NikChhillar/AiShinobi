@@ -18,7 +18,6 @@ Dive into the captivating world of anime with AniHub! Create your own curated co
 - Seamlessly manage your watchlist, watch later list, and completed list.
 - Intuitive drag-and-drop functionality for list management.
 - User-friendly interface with anime-themed design.
-- MongoDB and Prisma integration for reliable data storage.
 - Next.js framework for efficient and responsive web application.
 - Tailwind CSS for stylish and consistent UI.
 

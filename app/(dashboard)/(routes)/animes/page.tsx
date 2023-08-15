@@ -82,7 +82,7 @@ const AnimePage = () => {
         bgColor="bg-violet-500/10"
       />
       <div className="flex flex-col items-center justify-center">
-        <div className=" py-4 md:p-8 w-full max-w-lg">
+        <div className=" py-4 px-2 md:p-8 w-full max-w-lg">
           <div className="mb-4 flex">
             <Input
               type="text"
@@ -114,8 +114,8 @@ const AnimePage = () => {
               <tbody>
                 {topAnimes.map((anime, index) => (
                   <tr key={anime} className="hover:bg-gray-100 transition">
-                    <td className="border  p-2 md:py-2 md:px-4">{index + 1}</td>
-                    <td className="border p-2 md:py-2 md:px-4">{anime}</td>
+                    <td className="border text-sm  p-2 md:py-2 md:px-4">{index + 1}</td>
+                    <td className="border text-sm p-2 md:py-2 md:px-4">{anime}</td>
                     <td className="border-t p-2 md:py-2 md:px-4 flex items-center">
                       <button
                         onClick={() => moveUp(index)}
@@ -126,7 +126,7 @@ const AnimePage = () => {
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-4 h-4"
                         >
                           <path
                             strokeLinecap="round"
@@ -145,7 +145,7 @@ const AnimePage = () => {
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-4 h-4"
                         >
                           <path
                             strokeLinecap="round"
@@ -164,7 +164,7 @@ const AnimePage = () => {
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
-                          className="w-6 h-6"
+                          className="w-4 h-4"
                         >
                           <path
                             strokeLinecap="round"

@@ -232,8 +232,8 @@ const WatchList: React.FC<WatchListProps> = ({
                     {...provided.dragHandleProps}
                     className="flex items-center justify-between p-2 bg-gray-100 rounded mt-2"
                   >
-                    <span>{anime.name}</span>
-                    <span className="text-gray-400">Rank {index + 1}</span>
+                    <span className="text-gray-400 mr-2">#{index + 1}</span>
+                    <span className="text-sm mr-2">{anime.name}</span>
                     <button onClick={() => handleDelete(index)}>❌</button>
                   </li>
                 )}

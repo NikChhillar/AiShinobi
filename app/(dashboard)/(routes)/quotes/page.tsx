@@ -116,7 +116,7 @@ const QuotePage = () => {
             {topQuotes.map((quoteItem, index) => (
               <div key={index} className="border p-4 bg-white rounded shadow">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-500">Rank {index + 1}</span>
+                  <span className="text-gray-500 text-sm">#{index + 1}</span>
                   <div className="flex space-x-2">
                     <button
                       onClick={() => moveUp(index)}
@@ -127,7 +127,7 @@ const QuotePage = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        className="w-6 h-6"
+                        className="w-4 h-4"
                       >
                         <path
                           strokeLinecap="round"
@@ -146,7 +146,7 @@ const QuotePage = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        className="w-6 h-6"
+                        className="w-4 h-4"
                       >
                         <path
                           strokeLinecap="round"
@@ -165,7 +165,7 @@ const QuotePage = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        className="w-6 h-6"
+                        className="w-4 h-4"
                       >
                         <path
                           strokeLinecap="round"
@@ -177,7 +177,7 @@ const QuotePage = () => {
                     </button>
                   </div>
                 </div>
-                <p className="text-lg mb-2">{quoteItem.quote}</p>
+                <p className="mb-2">{quoteItem.quote}</p>
                 <p className="text-gray-500 lowercase text-sm">@{quoteItem.quoteSource}</p>
               </div>
             ))}

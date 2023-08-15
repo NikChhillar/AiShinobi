@@ -78,7 +78,7 @@ const WatchLists = () => {
         updateList(destinationList, updatedDestinationList);
       }
     } else {
-      alert("can not add more");
+      alert("List is full");
     }
   };
 

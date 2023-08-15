@@ -24,11 +24,17 @@ const AnimePage = () => {
   }, [topAnimes]);
 
   const addAnime = () => {
-    if (animeName.trim() !== "" && topAnimes.length < 15) {
+    if (
+      animeName.trim() !== "" &&
+      animeName.length <= 25 &&
+      topAnimes.length < 15
+    ) {
       setTopAnimes([...topAnimes, animeName]);
       setAnimeName("");
     } else {
-      alert(`Can't add more`);
+      alert(
+        "Anime name should not exceed 25 characters, and the list should have less than 15 animes"
+      );
     }
   };
 
@@ -76,20 +82,17 @@ const AnimePage = () => {
         bgColor="bg-violet-500/10"
       />
       <div className="flex flex-col items-center justify-center">
-        <div className="p-8 w-full max-w-lg">
+        <div className=" py-4 md:p-8 w-full max-w-lg">
           <div className="mb-4 flex">
             <Input
               type="text"
-              placeholder="Enter Anime Name"
+              placeholder="Anime..."
               value={animeName}
               onChange={(e) => setAnimeName(e.target.value)}
               onKeyDown={handleKeyDown}
               autoComplete="off"
             />
-            <Button
-              onClick={addAnime}
-              className="ml-2"
-            >
+            <Button onClick={addAnime} className="ml-2">
               Add
             </Button>
           </div>
@@ -103,17 +106,17 @@ const AnimePage = () => {
             <table className="border-collapse border w-full">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="border p-2">#</th>
-                  <th className="border p-2">Anime Name</th>
-                  <th className="border p-2">Actions</th>
+                  <th className="border  p-2 md:py-2 md:px-4">#</th>
+                  <th className="border p-2 md:py-2 md:px-4">Anime</th>
+                  <th className="border p-2 md:py-2 md:px-4">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {topAnimes.map((anime, index) => (
                   <tr key={anime} className="hover:bg-gray-100 transition">
-                    <td className="border p-2">{index + 1}</td>
-                    <td className="border p-2">{anime}</td>
-                    <td className="border p-2 flex items-center">
+                    <td className="border  p-2 md:py-2 md:px-4">{index + 1}</td>
+                    <td className="border p-2 md:py-2 md:px-4">{anime}</td>
+                    <td className="border-t p-2 md:py-2 md:px-4 flex items-center">
                       <button
                         onClick={() => moveUp(index)}
                         className="text-gray-600 mr-2"

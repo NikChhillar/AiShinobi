@@ -6,14 +6,14 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const CharacterPage = () => {
-  const [characterName, setCharacterName] = useState("");
-  const [animeName, setAnimeName] = useState("");
-  const [topCharacters, setTopCharacters] = useState([]);
+  const [characterName, setCharacterName] = useState<string>("");
+  const [animeName, setAnimeName] = useState<string>("");
+  const [topCharacters, setTopCharacters] = useState<any[]>([]);
 
   // Load top characters from local storage
   useEffect(() => {
     const storedTopCharacters =
-      JSON.parse(localStorage.getItem("topCharacters")) || [];
+      JSON.parse(localStorage.getItem("topCharacters") || '[]');
     setTopCharacters(storedTopCharacters);
   }, []);
 
@@ -34,13 +34,13 @@ const CharacterPage = () => {
     }
   };
 
-  const removeCharacter = (index) => {
+  const removeCharacter = (index: number) => {
     const newTopCharacters = [...topCharacters];
     newTopCharacters.splice(index, 1);
     setTopCharacters(newTopCharacters);
   };
 
-  const moveUp = (index) => {
+  const moveUp = (index: number) => {
     if (index > 0) {
       const newTopCharacters = [...topCharacters];
       [newTopCharacters[index - 1], newTopCharacters[index]] = [
@@ -51,7 +51,7 @@ const CharacterPage = () => {
     }
   };
 
-  const moveDown = (index) => {
+  const moveDown = (index: number) => {
     if (index < topCharacters.length - 1) {
       const newTopCharacters = [...topCharacters];
       [newTopCharacters[index], newTopCharacters[index + 1]] = [
@@ -62,7 +62,7 @@ const CharacterPage = () => {
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: { key: string; }) => {
     if (e.key === "Enter") {
       addCharacter();
     }

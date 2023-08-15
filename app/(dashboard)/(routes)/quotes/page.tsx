@@ -1,6 +1,8 @@
 "use client";
 
 import { Heading } from "@/components/Heading";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { QuoteIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
@@ -78,30 +80,30 @@ const QuotePage = () => {
         bgColor="bg-violet-500/10"
       />
       <div className="p-8">
-        <h2 className="text-2xl font-semibold mb-4">Top Quotes</h2>
-        <div className="mb-4">
-          <input
+        <div className="mb-4 flex">
+          <Input
             type="text"
-            placeholder="Enter Quote"
+            placeholder="Quote..."
             value={quote}
             onChange={(e) => setQuote(e.target.value)}
-            className="border p-2 mr-2"
+            autoComplete="off"
             onKeyDown={handleKeyDown}
           />
-          <input
+          <Input
             type="text"
-            placeholder="Enter Quote Source"
+            placeholder="Source..."
             value={quoteSource}
             onChange={(e) => setQuoteSource(e.target.value)}
-            className="border p-2"
+            autoComplete="off"
+            className="ml-2"
             onKeyDown={handleKeyDown}
           />
-          <button
+          <Button
             onClick={addQuote}
-            className="bg-blue-500 text-white px-4 py-2 ml-2"
+            className="ml-2"
           >
-            Add Quote
-          </button>
+            Add
+          </Button>
         </div>
         {topQuotes.length === 0 ? (
           <div className="flex items-center justify-center h-40">
@@ -176,7 +178,7 @@ const QuotePage = () => {
                   </div>
                 </div>
                 <p className="text-lg mb-2">{quoteItem.quote}</p>
-                <p className="text-gray-500 text-sm">{quoteItem.quoteSource}</p>
+                <p className="text-gray-500 lowercase text-sm">@{quoteItem.quoteSource}</p>
               </div>
             ))}
           </div>

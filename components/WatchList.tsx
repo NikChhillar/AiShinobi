@@ -7,6 +7,8 @@ import {
   Draggable,
   DropResult,
 } from "react-beautiful-dnd";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 interface Anime {
   id: string;
@@ -142,35 +144,35 @@ const WatchLists = () => {
 
   return (
     <div className="p-8">
-      <h2 className="text-2xl font-semibold mb-4">Watch Lists</h2>
-      <div className="mb-4">
-        <input
+      <div className="mb-4 flex flex-col md:flex-row justify-center flex-wrap gap-2">
+        <Input
           type="text"
-          placeholder="Enter Anime Name"
+          placeholder="Anime...."
           value={animeName}
           onChange={(e) => setAnimeName(e.target.value)}
-          className="border p-2"
+          className="w-[250px]"
         />
-        <button
-          onClick={() =>
-            handleAddAnime(currentlyWatching, setCurrentlyWatching)
-          }
-          className="bg-blue-500 text-white px-4 py-2 ml-2"
-        >
-          Add to Currently Watching
-        </button>
-        <button
-          onClick={() => handleAddAnime(watchLater, setWatchLater)}
-          className="bg-blue-500 text-white px-4 py-2 ml-2"
-        >
-          Add to Watch Later
-        </button>
-        <button
-          onClick={() => handleAddAnime(completed, setCompleted)}
-          className="bg-blue-500 text-white px-4 py-2 ml-2"
-        >
-          Add to Completed
-        </button>
+        <div>
+          <Button
+            onClick={() =>
+              handleAddAnime(currentlyWatching, setCurrentlyWatching)
+            }
+          >
+            Ongoing
+          </Button>
+          <Button
+            onClick={() => handleAddAnime(watchLater, setWatchLater)}
+            className="ml-2 p-4"
+          >
+            WatchList
+          </Button>
+          <Button
+            onClick={() => handleAddAnime(completed, setCompleted)}
+            className=" ml-2"
+          >
+            Completed
+          </Button>
+        </div>
       </div>
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">

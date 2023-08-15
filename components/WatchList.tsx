@@ -13,7 +13,6 @@ interface Anime {
   name: string;
 }
 
-
 const WatchLists = () => {
   const [currentlyWatching, setCurrentlyWatching] = useState<Anime[]>([]);
   const [watchLater, setWatchLater] = useState<Anime[]>([]);
@@ -79,7 +78,7 @@ const WatchLists = () => {
         updateList(destinationList, updatedDestinationList);
       }
     } else {
-      alert("10 is the limit set by admin....");
+      alert("can not add more");
     }
   };
 
@@ -141,8 +140,6 @@ const WatchLists = () => {
     }
   };
 
-
-
   return (
     <div className="p-8">
       <h2 className="text-2xl font-semibold mb-4">Watch Lists</h2>
@@ -181,16 +178,19 @@ const WatchLists = () => {
             list={currentlyWatching}
             listId="currentlyWatchingList"
             title="Currently Watching"
+            updateList={updateList}
           />
           <WatchList
             list={watchLater}
             listId="watchLaterList"
             title="Watch Later"
+            updateList={updateList}
           />
           <WatchList
             list={completed}
             listId="completedList"
             title="Completed"
+            updateList={updateList}
           />
         </div>
       </DragDropContext>
@@ -202,10 +202,19 @@ interface WatchListProps {
   list: Anime[];
   listId: string;
   title: string;
+  updateList: (list: Anime[], updatedList: Anime[]) => void;
 }
 
-const WatchList: React.FC<WatchListProps> = ({ list, listId, title }) => {
-
+const WatchList: React.FC<WatchListProps> = ({
+  list,
+  listId,
+  title,
+  updateList,
+}) => {
+  const handleDelete = (index: number) => {
+    const updatedList = removeItem(list, index);
+    updateList(list, updatedList);
+  };
   return (
     <div className="border p-4 bg-white rounded shadow">
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
@@ -223,6 +232,7 @@ const WatchList: React.FC<WatchListProps> = ({ list, listId, title }) => {
                   >
                     <span>{anime.name}</span>
                     <span className="text-gray-400">Rank {index + 1}</span>
+                    <button onClick={() => handleDelete(index)}>❌</button>
                   </li>
                 )}
               </Draggable>
@@ -235,5 +245,10 @@ const WatchList: React.FC<WatchListProps> = ({ list, listId, title }) => {
   );
 };
 
-export default WatchLists;
+const removeItem = <T extends any[]>(list: T, index: number): T => {
+  const newList = [...list];
+  newList.splice(index, 1);
+  return newList as T;
+};
 
+export default WatchLists;

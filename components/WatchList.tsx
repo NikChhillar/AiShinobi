@@ -143,7 +143,7 @@ const WatchLists = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="mb-4 flex flex-col md:flex-row justify-center flex-wrap gap-2">
         <Input
           type="text"

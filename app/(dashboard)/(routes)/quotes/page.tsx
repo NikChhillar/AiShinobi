@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 const QuotePage = () => {
   const [quote, setQuote] = useState<string>("");
   const [quoteSource, setQuoteSource] = useState<string>("");
-  const [topQuotes, setTopQuotes] = useState<string[]>([]);
+  const [topQuotes, setTopQuotes] = useState<any[]>([]);
 
   // Load top quotes from local storage
   useEffect(() => {

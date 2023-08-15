@@ -26,6 +26,7 @@
     "next": "13.4.10",
     "postcss": "8.4.26",
     "react": "18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.2",
     "react-spinners": "^0.13.8",
@@ -35,5 +36,8 @@
     "typescript": "5.1.6",
     "typewriter-effect": "^2.20.1",
     "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/react-beautiful-dnd": "^13.1.4"
   }
 }

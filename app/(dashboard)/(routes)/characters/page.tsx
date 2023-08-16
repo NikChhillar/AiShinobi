@@ -3,6 +3,7 @@
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 import { UserIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
@@ -18,6 +19,8 @@ const CharacterPage = () => {
   const [characterName, setCharacterName] = useState<string>("");
   const [animeName, setAnimeName] = useState<string>("");
   const [topCharacters, setTopCharacters] = useState<any[]>([]);
+
+  const { toast } = useToast()
 
   // Load top characters from local storage
   useEffect(() => {
@@ -44,9 +47,11 @@ const CharacterPage = () => {
       setAnimeName("");
     }
     else {
-      alert(
-        'Character name and anime name should not exceed 35 characters, and the list should have less than 15 characters.'
-      );
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: 'Possible reasons: Either list is full Or input field is empty or contains character greater than 35'
+      })
     }
   };
 

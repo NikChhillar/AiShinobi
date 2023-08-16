@@ -3,6 +3,7 @@
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 import { VideoIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -17,6 +18,8 @@ const rankingColors = [
 const AnimePage = () => {
   const [animeName, setAnimeName] = useState<string>("");
   const [topAnimes, setTopAnimes] = useState<string[]>([]);
+
+  const { toast } = useToast()
 
   // Load top animes from local storage
   useEffect(() => {
@@ -40,9 +43,11 @@ const AnimePage = () => {
       setTopAnimes([...topAnimes, animeName]);
       setAnimeName("");
     } else {
-      alert(
-        "Anime name should not exceed 25 characters, and the list should have less than 15 animes"
-      );
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: 'Possible reasons: Either list is full Or input field is empty or contains character greater than 25'
+      })
     }
   };
 

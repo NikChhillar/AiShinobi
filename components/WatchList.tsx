@@ -9,12 +9,13 @@ import {
 } from "react-beautiful-dnd";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { useToast } from "./ui/use-toast";
 
 
 const rankingColors = [
   'bg-purple-300', 'bg-purple-200',  // Purple shades
   'bg-blue-300', 'bg-blue-200',        // Blue shades
-  'bg-green-300', 'bg-green-200', ,    // Green shades
+  'bg-green-300', 'bg-green-200',    // Green shades
   'bg-orange-300', 'bg-orange-200',  // Orange shades
   'bg-red-300', 'bg-red-200',        // Red shades
 ];
@@ -29,6 +30,8 @@ const WatchLists = () => {
   const [watchLater, setWatchLater] = useState<Anime[]>([]);
   const [completed, setCompleted] = useState<Anime[]>([]);
   const [animeName, setAnimeName] = useState<string>("");
+
+  const { toast } = useToast()
 
   // Load watchlists from local storage
   useEffect(() => {
@@ -68,7 +71,7 @@ const WatchLists = () => {
     const sourceList = getList(source.droppableId);
     const destinationList = getList(destination.droppableId);
 
-    if (destinationList.length < 10) {
+    if (destinationList.length < 11) {
       if (sourceList === destinationList) {
         const reorderedList = reorder(
           sourceList,
@@ -77,19 +80,32 @@ const WatchLists = () => {
         );
         updateList(destinationList, reorderedList);
       } else {
-        const movedItem = sourceList[source.index];
-        const newSourceList = removeItem(sourceList, source.index);
-        const updatedDestinationList = insertItem(
-          destinationList,
-          destination.index,
-          movedItem
-        );
+        if (destinationList.length < 10) {
+          const movedItem = sourceList[source.index];
+          const newSourceList = removeItem(sourceList, source.index);
+          const updatedDestinationList = insertItem(
+            destinationList,
+            destination.index,
+            movedItem
+          );
 
-        updateList(sourceList, newSourceList);
-        updateList(destinationList, updatedDestinationList);
+          updateList(sourceList, newSourceList);
+          updateList(destinationList, updatedDestinationList);
+        }
+        else {
+          toast({
+            variant: "destructive",
+            title: "Uh oh! Something went wrong.",
+            description: 'Possible reason: The list is full'
+          })
+        }
       }
     } else {
-      alert("List is full");
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: 'Possible reason: The list is full'
+      })
     }
   };
 
@@ -146,7 +162,11 @@ const WatchLists = () => {
         setList([...list, { id: Date.now().toString(), name: animeName }]);
         setAnimeName("");
       } else {
-        alert("You cannot add more than 10 animes to this list.");
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: 'Possible reason: The list is full'
+        })
       }
     }
   };

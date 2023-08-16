@@ -3,6 +3,7 @@
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 import { QuoteIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
@@ -18,6 +19,8 @@ const QuotePage = () => {
   const [quote, setQuote] = useState<string>("");
   const [quoteSource, setQuoteSource] = useState<string>("");
   const [topQuotes, setTopQuotes] = useState<any[]>([]);
+
+  const { toast } = useToast()
 
   // Load top quotes from local storage
   useEffect(() => {
@@ -41,6 +44,13 @@ const QuotePage = () => {
       setTopQuotes([...topQuotes, { quote, quoteSource }]);
       setQuote("");
       setQuoteSource("");
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: 'Possible reasons: Either list is full Or input field is empty..'
+
+      })
     }
   };
 

@@ -6,6 +6,14 @@ import { Input } from "@/components/ui/input";
 import { QuoteIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
+const rankingColors = [
+  'bg-purple-300', 'bg-purple-200', 'bg-purple-100', // Purple shades
+  'bg-blue-300', 'bg-blue-200', 'bg-blue-100',       // Blue shades
+  'bg-green-300', 'bg-green-200', 'bg-green-100',    // Green shades
+  'bg-orange-300', 'bg-orange-200', 'bg-orange-100', // Orange shades
+  'bg-red-300', 'bg-red-200', 'bg-red-100',          // Red shades
+];
+
 const QuotePage = () => {
   const [quote, setQuote] = useState<string>("");
   const [quoteSource, setQuoteSource] = useState<string>("");
@@ -114,7 +122,9 @@ const QuotePage = () => {
         ) : (
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {topQuotes.map((quoteItem, index) => (
-              <div key={index} className="border p-4 bg-white rounded shadow">
+              <div key={index}
+                className={`border p-4 rounded-lg shadow ${rankingColors[index % rankingColors.length]}`}
+              >
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-gray-500 text-sm">#{index + 1}</span>
                   <div className="flex space-x-2">

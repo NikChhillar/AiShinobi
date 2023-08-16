@@ -4,8 +4,15 @@ import { Heading } from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { UserIcon } from "lucide-react";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
+
+const rankingColors = [
+  'bg-purple-300', 'bg-purple-200', 'bg-purple-100', // Purple shades
+  'bg-blue-300', 'bg-blue-200', 'bg-blue-100',       // Blue shades
+  'bg-green-300', 'bg-green-200', 'bg-green-100',    // Green shades
+  'bg-orange-300', 'bg-orange-200', 'bg-orange-100', // Orange shades
+  'bg-red-300', 'bg-red-200', 'bg-red-100',          // Red shades
+];
 
 const CharacterPage = () => {
   const [characterName, setCharacterName] = useState<string>("");
@@ -28,8 +35,8 @@ const CharacterPage = () => {
     if (
       characterName.trim() !== '' &&
       animeName.trim() !== '' &&
-      characterName.length <= 25 &&
-      animeName.length <= 25 &&
+      characterName.length <= 35 &&
+      animeName.length <= 35 &&
       topCharacters.length < 15
     ) {
       setTopCharacters([...topCharacters, { characterName, animeName }]);
@@ -38,7 +45,7 @@ const CharacterPage = () => {
     }
     else {
       alert(
-        'Character name and anime name should not exceed 25 characters, and the list should have less than 15 characters.'
+        'Character name and anime name should not exceed 35 characters, and the list should have less than 15 characters.'
       );
     }
   };
@@ -131,7 +138,8 @@ const CharacterPage = () => {
               </thead>
               <tbody>
                 {topCharacters.map((character, index) => (
-                  <tr key={index} className="hover:bg-gray-100">
+                  <tr key={index} className={` ${rankingColors[index % rankingColors.length]}`}
+                  >
                     <td className="border text-sm  p-2 md:py-2 md:px-4">{index + 1}</td>
                     <td className="border text-sm  p-2 md:py-2 md:px-4">{character.characterName}</td>
                     <td className="border text-sm p-2 md:py-2 md:px-4">{character.animeName}</td>

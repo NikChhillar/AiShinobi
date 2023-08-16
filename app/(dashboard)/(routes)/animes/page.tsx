@@ -6,6 +6,14 @@ import { Input } from "@/components/ui/input";
 import { VideoIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
+const rankingColors = [
+  'bg-purple-300', 'bg-purple-200', 'bg-purple-100', // Purple shades
+  'bg-blue-300', 'bg-blue-200', 'bg-blue-100',       // Blue shades
+  'bg-green-300', 'bg-green-200', 'bg-green-100',    // Green shades
+  'bg-orange-300', 'bg-orange-200', 'bg-orange-100', // Orange shades
+  'bg-red-300', 'bg-red-200', 'bg-red-100',          // Red shades
+];
+
 const AnimePage = () => {
   const [animeName, setAnimeName] = useState<string>("");
   const [topAnimes, setTopAnimes] = useState<string[]>([]);
@@ -113,8 +121,10 @@ const AnimePage = () => {
               </thead>
               <tbody>
                 {topAnimes.map((anime, index) => (
-                  <tr key={anime} className="hover:bg-gray-100 transition">
-                    <td className="border text-sm  p-2 md:py-2 md:px-4">{index + 1}</td>
+                  <tr key={anime}
+                    className={` ${rankingColors[index % rankingColors.length]}`}
+                  >
+                    <td className="border text-sm  p-2 md:py-2 md:px-4">#{index + 1}</td>
                     <td className="border text-sm p-2 md:py-2 md:px-4">{anime}</td>
                     <td className="border-t p-2 md:py-2 md:px-4 flex items-center">
                       <button

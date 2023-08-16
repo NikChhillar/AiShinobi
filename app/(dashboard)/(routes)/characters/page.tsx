@@ -19,6 +19,7 @@ const CharacterPage = () => {
   const [characterName, setCharacterName] = useState<string>("");
   const [animeName, setAnimeName] = useState<string>("");
   const [topCharacters, setTopCharacters] = useState<any[]>([]);
+  const [topCharactersSet, setTopCharactersSet] = useState(new Set());
 
   const { toast } = useToast()
 
@@ -34,17 +35,29 @@ const CharacterPage = () => {
     localStorage.setItem("topCharacters", JSON.stringify(topCharacters));
   }, [topCharacters]);
 
+
   const addCharacter = () => {
+    const newCharacter = { characterName, animeName };
+
     if (
       characterName.trim() !== '' &&
       animeName.trim() !== '' &&
       characterName.length <= 35 &&
       animeName.length <= 35 &&
-      topCharacters.length < 15
+      topCharacters.length < 15 &&
+      !topCharactersSet.has(JSON.stringify(newCharacter))
+
     ) {
-      setTopCharacters([...topCharacters, { characterName, animeName }]);
+      setTopCharacters([...topCharacters, newCharacter]);
+      setTopCharactersSet(new Set(topCharactersSet).add(JSON.stringify(newCharacter)));
       setCharacterName("");
       setAnimeName("");
+    } else if (topCharactersSet.has(JSON.stringify(newCharacter))) {
+      toast({
+        variant: "destructive",
+        title: "Already exists....",
+        description: `Character "${characterName}" from anime "${animeName}" is already in the list.`
+      })
     }
     else {
       toast({

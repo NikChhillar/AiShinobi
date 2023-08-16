@@ -35,6 +35,7 @@ const QuotePage = () => {
     localStorage.setItem("topQuotes", JSON.stringify(topQuotes));
   }, [topQuotes]);
 
+  
   const addQuote = () => {
     if (
       quote.trim() !== "" &&

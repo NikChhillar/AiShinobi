@@ -18,6 +18,7 @@ const rankingColors = [
 const AnimePage = () => {
   const [animeName, setAnimeName] = useState<string>("");
   const [topAnimes, setTopAnimes] = useState<string[]>([]);
+  const [topAnimesSet, setTopAnimesSet] = useState(new Set());
 
   const { toast } = useToast()
 
@@ -34,14 +35,34 @@ const AnimePage = () => {
     localStorage.setItem("topAnimes", JSON.stringify(topAnimes));
   }, [topAnimes]);
 
+  // const addAnime = () => {
+  //   if (
+  //     animeName.trim() !== "" &&
+  //     animeName.length <= 25 &&
+  //     topAnimes.length < 15
+  //   ) {
+  //     setTopAnimes([...topAnimes, animeName]);
+  //     setAnimeName("");
+  //   } else {
+  //     toast({
+  //       variant: "destructive",
+  //       title: "Uh oh! Something went wrong.",
+  //       description: 'Possible reasons: Either list is full Or input field is empty or contains character greater than 25'
+  //     })
+  //   }
+  // };
+
   const addAnime = () => {
-    if (
-      animeName.trim() !== "" &&
-      animeName.length <= 25 &&
-      topAnimes.length < 15
-    ) {
+    if (animeName.trim() !== "" && topAnimes.length < 15 && !topAnimesSet.has(animeName)) {
       setTopAnimes([...topAnimes, animeName]);
+      topAnimesSet.add(animeName); // Add the input to the Set
       setAnimeName("");
+    } else if (topAnimesSet.has(animeName)) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: `Anime "${animeName}" is already in the list.`
+      })
     } else {
       toast({
         variant: "destructive",

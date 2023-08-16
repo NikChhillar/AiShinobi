@@ -6,6 +6,7 @@ import {
   Code,
   LayoutDashboard,
   QuoteIcon,
+  StarIcon,
   UserIcon,
   VideoIcon,
 } from "lucide-react";
@@ -43,6 +44,12 @@ const routes = [
     icon: ClockIcon,
     color: "text-emerald-500",
     href: "/watchlist",
+  },
+  {
+    label: "Creator's Pick",
+    icon: StarIcon,
+    color: "text-yellow-500",
+    href: "/creator",
   },
   {
     label: "About",

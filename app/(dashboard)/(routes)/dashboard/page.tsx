@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ClockIcon,
   QuoteIcon,
+  StarIcon,
   UserIcon,
   VideoIcon,
 } from "lucide-react";
@@ -39,6 +40,13 @@ const tools = [
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
     href: "/watchlist",
+  },
+  {
+    label: "Creator's Picks",
+    icon: StarIcon,
+    color: "text-yellow-500",
+    bgColor: "bg-yellow-500/10",
+    href: "/creator",
   },
 ];
 

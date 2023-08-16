@@ -7,7 +7,7 @@ const page = () => {
     <div>
       <Heading
         title="About this Project"
-        description="Created by Nikhil..."
+        description="created by Nikhil..."
         icon={Code}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"

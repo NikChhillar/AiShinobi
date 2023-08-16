@@ -19,6 +19,8 @@ const QuotePage = () => {
   const [quote, setQuote] = useState<string>("");
   const [quoteSource, setQuoteSource] = useState<string>("");
   const [topQuotes, setTopQuotes] = useState<any[]>([]);
+  const [topQuotesSet, setTopQuotesSet] = useState(new Set());
+
 
   const { toast } = useToast()
 
@@ -35,16 +37,25 @@ const QuotePage = () => {
     localStorage.setItem("topQuotes", JSON.stringify(topQuotes));
   }, [topQuotes]);
 
-  
+
   const addQuote = () => {
+    const newQuote = { quote, quoteSource };
     if (
       quote.trim() !== "" &&
       quoteSource.trim() !== "" &&
-      topQuotes.length < 15
+      topQuotes.length < 15 && !topQuotesSet.has(JSON.stringify(newQuote))
     ) {
-      setTopQuotes([...topQuotes, { quote, quoteSource }]);
+      setTopQuotes([...topQuotes, newQuote]);
+      setTopQuotesSet(new Set(topQuotesSet).add(JSON.stringify(newQuote)));
       setQuote("");
       setQuoteSource("");
+    } else if (topQuotesSet.has(JSON.stringify(newQuote))) {
+      toast({
+        variant: "destructive",
+        title: "Already exists...",
+        description: `Quote "${quote}" from source "${quoteSource}" is already in the list.`
+
+      })
     } else {
       toast({
         variant: "destructive",

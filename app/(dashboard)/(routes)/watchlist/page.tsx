@@ -8,7 +8,7 @@ const page = () => {
     <div>
       <Heading
         title="Effortless Watchlist Management"
-        description="Stay Organized with Seamless Anime Tracking..."
+        description="Stay Organized with Seamless Anime Tracking using drag and drop..."
         icon={ClockIcon}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"

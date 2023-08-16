@@ -10,6 +10,15 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
+
+const rankingColors = [
+  'bg-purple-300', 'bg-purple-200',  // Purple shades
+  'bg-blue-300', 'bg-blue-200',        // Blue shades
+  'bg-green-300', 'bg-green-200', ,    // Green shades
+  'bg-orange-300', 'bg-orange-200',  // Orange shades
+  'bg-red-300', 'bg-red-200',        // Red shades
+];
+
 interface Anime {
   id: string;
   name: string;
@@ -230,7 +239,7 @@ const WatchList: React.FC<WatchListProps> = ({
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
-                    className="flex items-center justify-between p-2 bg-gray-100 rounded mt-2"
+                    className={`flex items-center justify-between p-2 rounded mt-2 ${rankingColors[index % rankingColors.length]}`}
                   >
                     <span className="text-gray-400 mr-2">#{index + 1}</span>
                     <span className="text-sm mr-2">{anime.name}</span>

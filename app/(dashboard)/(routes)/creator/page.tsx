@@ -49,7 +49,7 @@ const CreatorPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
                     <QuoteCard rank={1} source='one piece' quote={`Beneath the moon we'll meet again, the wind's our lullaby...`} />
-                    <QuoteCard rank={2} source='one piece' quote={`You can't do a double suicide alone.. `} />
+                    <QuoteCard rank={2} source='Osamu Dazai' quote={`You can't do a double suicide alone.. `} />
                     <QuoteCard rank={3} source='one piece' quote='Kindness is a lie' />
                     <QuoteCard rank={4} source='one piece' quote='Kindness is a lie' />
                     <QuoteCard rank={5} source='one piece' quote='Kindness is a lie' />

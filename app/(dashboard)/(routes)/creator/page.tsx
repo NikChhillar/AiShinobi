@@ -34,11 +34,11 @@ const CreatorPage = () => {
                 {/* Display your top 5 favorite characters */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
 
-                    <CharacterCard characterName='Miku' rank={1} animeName='One piece' imageUrl='/images/miku.jpg' />
-                    <CharacterCard characterName='Kirito' rank={2} animeName='One piece' imageUrl='/images/kirito.jpg' />
-                    <CharacterCard characterName='Anya' rank={3} animeName='One piece' imageUrl='/images/anya.jpg' />
-                    <CharacterCard characterName='X' rank={4} animeName='One piece' imageUrl='/images/lw.jpg' />
-                    <CharacterCard characterName='X' rank={5} animeName='One piece' imageUrl='/images/lw.jpg' />
+                    <CharacterCard characterName='Miku Nakano' rank={1} animeName='The Quintessential Quintuplets' imageUrl='/images/miku.jpg' />
+                    <CharacterCard characterName='Kirigaya Kazuto (Kirito)' rank={2} animeName='Sword Art Online' imageUrl='/images/kirito.jpg' />
+                    <CharacterCard characterName='Anya Forger' rank={3} animeName='Spy x Family' imageUrl='/images/anya.jpg' />
+                    <CharacterCard characterName='Eren Yeager' rank={4} animeName='Attack on titans' imageUrl='/images/anya.jpg' />
+                    <CharacterCard characterName='Rimuru Tempest' rank={5} animeName='That time I got reincarnated as a slime' imageUrl='/images/tensura.jpg' />
                 </div>
             </div>
             <Separator className='mt-4' />

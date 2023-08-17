@@ -21,7 +21,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({ rank, quote, source }) => {
     return (
         <div className={`rounded-lg border border-gray-300 shadow p-4 ${bgColor}`}>
             <p className="text-gray-400">#{rank}</p>
-            <blockquote className="text-lg mb-2">{quote}</blockquote>
+            <blockquote className="mb-2">{quote}</blockquote>
             <p className="text-gray-600 text-sm lowercase">@{source}</p>
         </div>
     );

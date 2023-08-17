@@ -23,9 +23,9 @@ const CreatorPage = () => {
 
                     <AnimeCard rank={1} animeName='That time I got reincarnated as a slime' imageUrl='/images/tensura.jpg' />
                     <AnimeCard rank={2} animeName='Fruit Basket' imageUrl='/images/fb.jpg' />
-                    <AnimeCard rank={3} animeName='Bocchi the Rock' imageUrl='/images/lw.jpg' />
+                    <AnimeCard rank={3} animeName='Bocchi the Rock' imageUrl='/images/bocchi.jpg' />
                     <AnimeCard rank={4} animeName='Love is War' imageUrl='/images/lw.jpg' />
-                    <AnimeCard rank={5} animeName='Bungou Stray Dogs' imageUrl='/images/lw.jpg' />
+                    <AnimeCard rank={5} animeName='Bungou Stray Dogs' imageUrl='/images/bsd.jpg' />
                 </div>
             </div>
             <Separator className='mt-4' />
@@ -34,11 +34,11 @@ const CreatorPage = () => {
                 {/* Display your top 5 favorite characters */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
 
-                    <CharacterCard characterName='Ranpo Edogawa' rank={1} animeName='Bungou Stray Dogs' imageUrl='/images/miku.jpg' />
+                    <CharacterCard characterName='Ranpo Edogawa' rank={1} animeName='Bungou Stray Dogs' imageUrl='/images/ranpo.jpg' />
                     <CharacterCard characterName='Kiyotaka Ayanokouji' rank={2} animeName='Classroom of the Elite' imageUrl='/images/kirito.jpg' />
                     <CharacterCard characterName='Hachiman Hikigaya' rank={3} animeName='Oregairu' imageUrl='/images/anya.jpg' />
                     <CharacterCard characterName='Eren Yeager' rank={4} animeName='Attack on titans' imageUrl='/images/anya.jpg' />
-                    <CharacterCard characterName='Killua Zoldyck' rank={5} animeName='Hunter X Hunter' imageUrl='/images/tensura.jpg' />
+                    <CharacterCard characterName='Killua Zoldyck' rank={5} animeName='Hunter X Hunter' imageUrl='/images/killua.jpg' />
                 </div>
             </div>
             <Separator className='mt-4' />

@@ -35,9 +35,9 @@ const CreatorPage = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
 
                     <CharacterCard characterName='Ranpo Edogawa' rank={1} animeName='Bungou Stray Dogs' imageUrl='/i/ranpo.jpg' />
-                    <CharacterCard characterName='Kiyotaka Ayanokouji' rank={2} animeName='Classroom of the Elite' imageUrl='/i/bsd.jpg' />
-                    <CharacterCard characterName='Hachiman Hikigaya' rank={3} animeName='Oregairu' imageUrl='/i/ranpo.jpg' />
-                    <CharacterCard characterName='Eren Yeager' rank={4} animeName='Attack on titans' imageUrl='/i/bsd.jpg' />
+                    <CharacterCard characterName='Kiyotaka Ayanokouji' rank={2} animeName='Classroom of the Elite' imageUrl='/i/ak.png' />
+                    <CharacterCard characterName='Hachiman Hikigaya' rank={3} animeName='Oregairu' imageUrl='/i/hh.jpg' />
+                    <CharacterCard characterName='Eren Yeager' rank={4} animeName='Attack on titans' imageUrl='/i/eren.jpg' />
                     <CharacterCard characterName='Killua Zoldyck' rank={5} animeName='Hunter X Hunter' imageUrl='/i/killua.jpg' />
                 </div>
             </div>
@@ -48,11 +48,11 @@ const CreatorPage = () => {
                 {/* Display your top 5 favorite quotes */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
-                    <QuoteCard rank={1} source='one piece' quote={`Beneath the moon we'll meet again, the wind's our lullaby...`} />
-                    <QuoteCard rank={2} source='Osamu Dazai' quote={`You can't do a double suicide alone.. `} />
-                    <QuoteCard rank={3} source='one piece' quote='Kindness is a lie' />
-                    <QuoteCard rank={4} source='one piece' quote='Kindness is a lie' />
-                    <QuoteCard rank={5} source='one piece' quote='Kindness is a lie' />
+                    <QuoteCard rank={1} source='Kiyotaka Ayanokouji' quote={`All people are nothing but tools. It doesn’t matter how its done. It doesn’t matter what needs to be sacrificed. In this world, winning is everything. As long as I win in the end…That’s all that matters...`} />
+                    <QuoteCard rank={2} source='one piece' quote={`Beneath the moon we'll meet again, the wind's our lullaby...`} />
+                    <QuoteCard rank={3} source='Osamu Dazai' quote={`You can't do a double suicide alone... `} />
+                    <QuoteCard rank={4} source='Kiyotaka Ayanokouji' quote={`Coincidence can be freaky...`} />
+                    <QuoteCard rank={5} source='Saturo Gojo' quote={`Throughout heaven and Earth, I alone am the honored one...`} />
                 </div>
             </div>
         </div>
